@@ -1,0 +1,11 @@
+{
+  "name": "usefulnodetechniques",
+  "version": "1.0.0",
+  "description": "Nodejs application containing useful techniques",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rahul Midha",
+  "license": "ISC"
+}
