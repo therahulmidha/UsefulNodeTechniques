@@ -8,8 +8,9 @@ const app = express();
     await require('./startup/routeHandling')(app);
     await require('./startup/httpServer')(app);
     await require('./startup/db')(app);
+    await require('./startup/webSocketServer')();
     
-
+    
     if (app.get("env") === "production") {
         require('./startup/prod');
     }

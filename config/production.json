@@ -3,5 +3,7 @@
         "ip": "127.0.0.1",
         "port": 3000
     },
-    "dbName": "SampleDbProd"
+    "dbName": "SampleDbProd",
+    "wssPort": 9000,
+    "broadcastInterval": 60000
 }

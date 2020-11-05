@@ -1,0 +1,18 @@
+.header {
+    text-align: center;
+}
+
+main {
+    padding: 100;
+    border: 2px solid black;
+}
+
+.table-responsive {
+    max-height: 300px;
+}
+
+#notification {
+    display: none;
+    text-align: center;
+    color: brown;
+}

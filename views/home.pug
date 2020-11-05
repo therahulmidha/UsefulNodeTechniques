@@ -1,0 +1,38 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel="stylesheet", href="/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/home.css")
+    body
+        .container
+            header.header
+                h1 Welcome to Admin portal
+
+            main
+
+                
+                if orders.length > 0
+                    
+                    table.table.table-dark.table-responsive
+                        thead
+                            tr
+                            th(scope="col") Order Id
+                            th(scope="col") Order Date
+                            th(scope="col") Order Status
+                        tbody
+                            each order in orders
+                                tr
+                                td #{order.order_id}
+                                td #{order.order_date}
+                                td #{order.order_status}
+
+                else 
+                    h2 No Orders found
+
+                h3#notification More than 10 orders received in last minute
+        
+        script(src="/js/jquery.js")
+        script(src="/js/bootstrap.min.js")
+        script(src="/js/webSocketClient.js")

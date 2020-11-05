@@ -1,16 +1,23 @@
 const express = require('express');
 const error = require('../middleware/error');
-const cors = require('cors')
+const cors = require('cors');
+const path = require('path')
+
+const homeRouter = require('../routes/views/home');
+const orderRouter = require('../routes/api/order')
 module.exports = async function (app) {
     // allow cross origin resource sharing
     // so that front end app on another server can access our backend 
     app.use(cors());
 
     app.use(express.json());
+    app.use(express.static(path.join(__dirname, '..', 'public')));
+    app.set('view engine', 'pug'); // set global values
+    app.set('views', 'views'); // look for views in views folder
 
     // Route endpoints
-    
-    
+    app.use(homeRouter);
+    app.use('/api/order', orderRouter)
     // middleware for handling internal server error
     app.use(error);
 

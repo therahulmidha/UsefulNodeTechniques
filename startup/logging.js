@@ -3,16 +3,16 @@ const { createLogger, transports, format } = require('winston');
 const morgan = require('morgan')
 module.exports = async function (app) {
     const date = new Date();
-    const fileName = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + "-";
+    const fileName = date.getFullYear() + "-" + date.getMonth() + 1 + "-" + date.getDate() + "-";
     const logger = createLogger({
         transports: [
             new transports.File({
-                filename: `./logs/${fileName}-ERROR.log`,
+                filename: `./logs/${fileName}ERROR.log`,
                 level: 'error',
                 format: format.combine(format.timestamp(), format.json())
             }),
             new transports.File({
-                filename: `./logs/${fileName}-INFO.log`,
+                filename: `./logs/${fileName}INFO.log`,
                 level: 'info',
                 format: format.combine(format.timestamp(), format.json())
             }),
