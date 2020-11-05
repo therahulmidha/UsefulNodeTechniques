@@ -1,6 +1,6 @@
 const Order = require("../model/Order")
 const log = require('winston');
-
+const mailService = require('./mailService');
 module.exports = {
     getOrderLengthInLastMinute: async function () {
         try {
@@ -10,6 +10,7 @@ module.exports = {
                 }
             });
             if (orders.length > 10) {
+                mailService.sendEmail();
                 return true;
             }
             return false;

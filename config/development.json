@@ -5,5 +5,7 @@
     },
     "dbName": "SampleDbDev",
     "wssPort": 9000,
-    "broadcastInterval": 60000
+    "broadcastInterval": 60000,
+    "notifyEmailIdTo": "rahulmidhaprivate@gmail.com",
+    "notifyEmailIdFrom": "rahul.midha31@gmail.com"
 }

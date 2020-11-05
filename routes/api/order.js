@@ -3,6 +3,7 @@ const router = express.Router();
 const Joi = require('joi');
 const Order = require('../../model/Order');
 const messages = require('../../constants/messages');
+const log = require('winston');
 
 router.post('/', async (req, res) => {
     try {
@@ -26,6 +27,16 @@ router.post('/', async (req, res) => {
     }
 
 });
+
+
+router.get('/csv', async (req, res) => {
+    try {
+        let orders = await Order.find();
+    } catch (error) {
+        log.error(error.message);
+        return res.status(400).json({ message: messages.INTERNAL_SERVER_ERROR });
+    }
+})
 
 function validateOrder(data) {
     const schema = Joi.object({
