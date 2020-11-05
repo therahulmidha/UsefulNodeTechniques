@@ -36,7 +36,9 @@ POST /api/order/ and body data like:
 
 ---
 
-## 
+## Create Excel from Mongo Database Collection
+
+The api: /api/order/csv, fetches all the orders from mongodb collection and places it into csvFiles folder in the root directory.
 
 
 ---

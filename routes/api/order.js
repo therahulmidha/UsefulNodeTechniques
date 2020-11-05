@@ -4,6 +4,8 @@ const Joi = require('joi');
 const Order = require('../../model/Order');
 const messages = require('../../constants/messages');
 const log = require('winston');
+const ObjectsToCsv = require('objects-to-csv');
+const path = require('path')
 
 router.post('/', async (req, res) => {
     try {
@@ -32,6 +34,15 @@ router.post('/', async (req, res) => {
 router.get('/csv', async (req, res) => {
     try {
         let orders = await Order.find();
+        const csv = new ObjectsToCsv(orders.map(order=> ({
+            order_id: order.order_id,
+            order_date: order.order_date,
+            order_status: order.order_status,
+        })));
+        // Save to file:
+        let csvPath = path.join(__dirname, '../../', 'csvFiles', `${new Date().toISOString().replace(/:/g, '')}.csv`);
+        await csv.toDisk(csvPath);
+        return res.status(200).json({ message: 'Genereated csv success' })
     } catch (error) {
         log.error(error.message);
         return res.status(400).json({ message: messages.INTERNAL_SERVER_ERROR });
