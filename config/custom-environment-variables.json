@@ -3,5 +3,6 @@
         "username": "mongoUsername",
         "password": "mongoPassword"
     },
-    "sendGridKey": "sendGridApiKey03112020"
+    "sendGridKey": "sendGridApiKey03112020",
+    "jwtPrivateKey": "jwtPrivateKey"
 }

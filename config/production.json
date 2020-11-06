@@ -7,5 +7,6 @@
     "wssPort": 9000,
     "broadcastInterval": 60000,
     "notifyEmailIdTo": "rahulmidhaprivate@gmail.com",
-    "notifyEmailIdFrom": "rahul.midha31@gmail.com"
+    "notifyEmailIdFrom": "rahul.midha31@gmail.com",
+    "jwtExpirationTime": 300000
 }

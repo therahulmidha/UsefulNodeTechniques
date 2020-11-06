@@ -36,10 +36,34 @@ POST /api/order/ and body data like:
 
 ---
 
-## Create Excel from Mongo Database Collection
+## Standard techniques of authentication OAuth, JWT with refresh token implementation
 
-The api: /api/order/csv, fetches all the orders from mongodb collection and places it into csvFiles folder in the root directory.
+The api: /api/user/login and /api/user/register deal with authentication techniques using JWT.
 
+To create a user, send a POST request to  /api/user/register with body data like:
+
+{
+    "email": "rahul1@node-dev.com",
+    "password": "12345"
+}
+
+When successfully registered, we get a response like following which contains the encrypted password.
+
+{
+    "message": "User created successfully",
+    "data": {
+        "_id": "---",
+        "email": "rahul1@node-dev.com",
+        "password": "$2a$10$DhNvdMz16dasdsaffsdfsdf/dsaad/xK6uGUaPM",
+        "__v": 0
+    }
+}
+
+To login, send the same body data to /api/user/login, and in the response, we receive JSON web token that can be used appropriately on a front end application to authenticate further api calls to the server.
+
+The generateAuthToken method in models/Users generates the JWT token based on the user's _id in the mongodb, jwtPrivateKey and it's expiration is handled according to time specified in jwtExpirationTime.
+
+After this expiration time, the user will need to login again and regenerate the JWT in order to carry out future api calls.
 
 ---
 ## Author

@@ -5,6 +5,7 @@ const path = require('path')
 
 const homeRouter = require('../routes/views/home');
 const orderRouter = require('../routes/api/order')
+const userRouter = require('../routes/api/user')
 module.exports = async function (app) {
     // allow cross origin resource sharing
     // so that front end app on another server can access our backend 
@@ -18,6 +19,8 @@ module.exports = async function (app) {
     // Route endpoints
     app.use(homeRouter);
     app.use('/api/order', orderRouter)
+    app.use('/api/user', userRouter)
+
     // middleware for handling internal server error
     app.use(error);
 
