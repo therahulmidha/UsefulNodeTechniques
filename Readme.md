@@ -66,6 +66,14 @@ The generateAuthToken method in models/Users generates the JWT token based on th
 After this expiration time, the user will need to login again and regenerate the JWT in order to carry out future api calls.
 
 ---
+
+## Heroku app
+
+This application has been hosted on heroku and can be accessed using following url:
+
+https://useful-node-techniques.herokuapp.com/
+
+---
 ## Author
 Rahul Midha
 
