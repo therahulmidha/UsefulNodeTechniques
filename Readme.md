@@ -21,6 +21,8 @@ You can test it by running: node utils/Promisify in terminal
 
 A simple front end page can be opened on root path where we can see the sample list of orders in a tabular form. Whenever in a recent minute, the length of orders created reaches 10, a notification is displayed below the table and disappears after 20 seconds.
 
+Also, the config setting: notifyEmailIdTo contains the email to be notified when such condition occurs.
+
 The interval for checking when the order length exceeds 10, can be changed in config folder configuration with key: broadcastInterval
 
 The main code for this functionality is placed at startup/webSocketServer.js for server and public/js/webSocketClient.js for client.
@@ -33,6 +35,7 @@ POST /api/order/ and body data like:
     "order_id": 45744546645474,
     "order_status": "ordered"
 }
+
 
 ---
 
